@@ -1,5 +1,6 @@
 # angular-infinite-scroll
 super minimal infinite scroll library for angularJS :file_folder:
+
 only 454 bytes minified - and it's *used in production* :fireworks:
 
 [Plunker Demo](https://embed.plnkr.co/dzrRJRuCRfj442Onak0s/)
