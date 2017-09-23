@@ -15,6 +15,9 @@
         margin: auto;
         overflow: scroll;
       }
+      h3 {
+        text-align: center;
+      }
     </style>
   </head>
   <body ng-app="myApp">
@@ -24,6 +27,7 @@
             <li ng-repeat="fooBar in vm.fooBars track by $index">{{ fooBar }}</li>
         </ul>
       </div>
+      <h3 ng-if="vm.endOfList">No more foobars to load!</h3>
     </div>
     <script type="text/javascript">
       angular
@@ -38,7 +42,7 @@
             console.log("Loading additional foobars!");
             this.makeMoreFooBars();
             this.loading = false;
-            if (this.fooBars.length >= 1000) {
+            if (this.fooBars.length >= 500) {
               this.endOfList = true;
               console.log("End of list reached!");
             }

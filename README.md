@@ -1,7 +1,7 @@
 # angular-infinite-scroll
 minimal infinite scroll library for angularJS
 
-<!-- [Plunker Demo](https://embed.plnkr.co/q9Zm5IpRd4fpiY83DZIm/) -->
+[Plunker Demo](https://embed.plnkr.co/dzrRJRuCRfj442Onak0s/)
 
 ## Install
 ```
@@ -15,13 +15,15 @@ angular
   .controller('myController', function() {
     this.fooBars = (new Array(10)).fill("fooBar");
     this.makeMoreFooBars = () => {
-      this.fooBars.concat((new Array(10)).fill("fooBar"));
+      this.fooBars = this.fooBars.concat((new Array(10)).fill("fooBar"));
     }
     this.loadMoreFooBars = () => {
       console.log("Loading additional foobars!");
       this.makeMoreFooBars();
-      if (this.fooBars.length >= 1000) {
+      this.loading = false;
+      if (this.fooBars.length >= 500) {
         this.endOfList = true;
+        console.log("End of list reached!");
       }
     }
   });
