@@ -5,7 +5,7 @@ only 600 bytes minified - used in production :fireworks:
 
 So, after using the directive on a scrollable element, you need 1 thing to make this work:
 A function that gets more of what you're loading, and can set the loading and endOfList variables to false when applicable.
-This module comes with a rudimentary way to detect a mobile device, so feel free to use your own and pass is to the `scrollMobile` attribute.
+This module comes with a rudimentary way to detect a mobile device, so feel free to use your own and pass it to the `scrollMobile` attribute.
 Depending on the size of your container, you can play around with `scrollOfset` and `scrollShOffset` (scrollHeightOffset) to make it smoother, but the defaults work well for small - medium containers.
 
 [Plunker Demo](https://embed.plnkr.co/dzrRJRuCRfj442Onak0s/)
