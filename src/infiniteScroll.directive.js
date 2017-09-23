@@ -7,7 +7,9 @@ const infiniteScroll = () => {
       const sho = attrs.scrollShOffset;
       const offset =  so ? parseInt(so) : 5;
       const scrollHeightOffset = sho ? parseInt(sho) : 200;
-      const scrollEvt = attrs.isMobile === true ? 'scroll' : 'mousewheel';
+      let m = attrs.isMobile;
+      if (!m && typeof window.orientation !== 'undefined') m = true;
+      const scrollEvt = m === true ? 'scroll' : 'mousewheel';
 
       if (attrs.scrollUnbind) {
         scope.$watch(attrs.scrollUnbind, function(val) {
