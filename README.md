@@ -13,27 +13,28 @@ npm install angular-infinite-scroll
 ```javascript
 angular
   .module('myApp', ['angular-infinite-scroll'])
-  .controller('myController', function() {
+  .controller('myController', ['$scope', function($scope) {
     this.fooBars = (new Array(10)).fill("fooBar");
+    console.log(this);
     this.makeMoreFooBars = () => {
       this.fooBars = this.fooBars.concat((new Array(10)).fill("fooBar"));
     }
     this.loadMoreFooBars = () => {
       console.log("Loading additional foobars!");
       this.makeMoreFooBars();
-      this.loading = false;
+      $scope.scrollLoading = false;
       if (this.fooBars.length >= 500) {
         this.endOfList = true;
         console.log("End of list reached!");
       }
     }
-  });
+     }]);
 ```
 
 ```html
 <body ng-app="myApp">
   <div ng-controller="myController as vm">
-    <div when-scrolled="vm.loadMoreFooBars()" ws-offset="200" ws-unbind="vm.endOfList">
+    <div al-infinite-scroll="vm.loadMoreFooBars()" scroll-offset="200" scroll-unbind="vm.endOfList">
         <ul>
             <li ng-repeat="foobar in vm.foobars">{{ foobar }}</li>
         </ul>
@@ -43,7 +44,7 @@ angular
 
 ### Full options
 ```html
-<div when-scrolled="vm.loadMoreFooBars()" ws-offset="5" ws-unbind="vm.endOfList" ws-mobile="someMobileDetectionFn()" ws-sh-offset="200"></div>
+<div al-infinite-scroll="vm.loadMoreFooBars()" scroll-offset="5" scroll-unbind="vm.endOfList" scroll-mobile="someMobileDetectionFn()" scroll-sh-offset="200"></div>
 ```
 
 ## Development

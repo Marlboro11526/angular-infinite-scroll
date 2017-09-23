@@ -22,7 +22,7 @@
   </head>
   <body ng-app="myApp">
     <div ng-controller="myController as vm">
-      <div id="fooBarScroller" when-scrolled="vm.loadMoreFooBars()" ws-offset="200" ws-unbind="vm.endOfList">
+      <div id="fooBarScroller" al-infinite-scroll="vm.loadMoreFooBars()" scroll-offset="200" scroll-unbind="vm.endOfList">
         <ul>
             <li ng-repeat="fooBar in vm.fooBars track by $index">{{ fooBar }}</li>
         </ul>
@@ -32,7 +32,7 @@
     <script type="text/javascript">
       angular
         .module('myApp', ['angular-infinite-scroll'])
-        .controller('myController', function() {
+        .controller('myController', ['$scope', function($scope) {
           this.fooBars = (new Array(10)).fill("fooBar");
           console.log(this);
           this.makeMoreFooBars = () => {
@@ -41,13 +41,13 @@
           this.loadMoreFooBars = () => {
             console.log("Loading additional foobars!");
             this.makeMoreFooBars();
-            this.loading = false;
+            $scope.scrollLoading = false;
             if (this.fooBars.length >= 500) {
               this.endOfList = true;
               console.log("End of list reached!");
             }
           }
-        });
+        }]);
     </script>
   </body>
 </html>
