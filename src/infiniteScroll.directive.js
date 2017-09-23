@@ -3,8 +3,10 @@ const infiniteScroll = () => {
     restrict: 'A',
     link(scope, element, attrs) {
       const raw = element[0];
-      const offset = attrs.scrollOffset ? parseInt(attrs.scrollOffset) : 5;
-      const scrollHeightOffset = attrs.scrollShOffset ? parseInt(attrs.scrollShOffset) : 200;
+      const so = attrs.scrollOffset;
+      const sho = attrs.scrollShOffset;
+      const offset =  so ? parseInt(so) : 5;
+      const scrollHeightOffset = sho ? parseInt(sho) : 200;
       const scrollEvt = attrs.isMobile === true ? 'scroll' : 'mousewheel';
 
       if (attrs.scrollUnbind) {
