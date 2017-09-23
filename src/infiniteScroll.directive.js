@@ -25,7 +25,7 @@ const infiniteScroll = () => {
       }
 
       // apply infiniteScroll fn when scrolled past limit
-      var onScroll = function(evt) {
+      let onScroll = function(evt) {
         if (scope.scrollLoading) return;
         if ((raw.scrollTop + raw.offsetHeight + options.so) >= (raw.scrollHeight + options.sho)) {
           scope.scrollLoading = true;
