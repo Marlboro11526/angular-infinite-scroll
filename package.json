@@ -1,0 +1,39 @@
+{
+  "name": "angular-infinite-scroll",
+  "version": "1.0.0",
+  "description": "minimal infinite scroll package for angular1.x",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronlifton2/angular-infinite-scroll.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "infinite",
+    "scroll",
+    "when-scrolled",
+    "infinite-scroll"
+  ],
+  "author": "Aaron Lifton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaronlifton2/angular-infinite-scroll/issues"
+  },
+  "homepage": "https://github.com/aaronlifton2/angular-infinite-scroll#readme",
+  "dependencies": {
+    "angular": "^1.6.4"
+  },
+  "devDependencies": {
+    "angular": "^1.6.4",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-latest": "^6.24.1",
+    "google-closure-compiler": "^20170521.0.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-closure-compiler-js": "^1.0.4",
+    "rollup-watch": "^3.2.2"
+  }
+}
