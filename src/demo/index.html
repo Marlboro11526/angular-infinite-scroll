@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script type="text/javascript" src="../../dist/AngularInfiniteScroll.min.js"></script>
+    <style type="text/css">
+      body {
+        background: whitesmoke;
+        padding-top: 150px;
+      }
+      #fooBarScroller {
+        width: 400px;
+        height: 150px;
+        display: block;
+        background: white;
+        margin: auto;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="myController as vm">
+      <div id="fooBarScroller" when-scrolled="vm.loadMoreFooBars()" ws-offset="200" ws-unbind="vm.endOfList">
+        <ul>
+            <li ng-repeat="fooBar in vm.fooBars track by $index">{{ fooBar }}</li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript">
+      angular
+        .module('myApp', ['angular-infinite-scroll'])
+        .controller('myController', function() {
+          this.fooBars = (new Array(10)).fill("fooBar");
+          console.log(this);
+          this.makeMoreFooBars = () => {
+            this.fooBars = this.fooBars.concat((new Array(10)).fill("fooBar"));
+          }
+          this.loadMoreFooBars = () => {
+            console.log("Loading additional foobars!");
+            this.makeMoreFooBars();
+            this.loading = false;
+            if (this.fooBars.length >= 1000) {
+              this.endOfList = true;
+              console.log("End of list reached!");
+            }
+          }
+        });
+    </script>
+  </body>
+</html>
